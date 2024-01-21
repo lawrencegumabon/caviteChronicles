@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- BS CSS LINK -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- FONT LINK -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- STYLE -->
+    <style>
+      .card {
+        width: 20rem;
+        cursor: pointer;
+      }
+
+      img {
+        width: 100%;
+        height: 10rem;
+        object-fit: cover;
+      }
+
+      .main-container {
+        display: flex;
+        justify-content: center;
+      }
+
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        text-align: center;
+        height: 100%;
+      }
+
+      .card-title {
+        margin-top: 1rem;
+        max-height: 3.6rem;
+        overflow: hidden;
+      }
+
+      .popup-image {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .modal {
+        padding-top: 5rem;
+      }
+
+      .modal-header,
+      .readMore {
+        background-color: #1b262c;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV START -->
+    <nav class="navbar navbar-expand-lg bg-main fixed-top">
+      <div class="container-fluid d-flex justify-content-between">
+        <div class="d-flex container-fluid justify-content-between">
+          <a class="navbar-brand text-white fs-2 fw-bold" href="#"
+            >CaviteChronicles</a
+          >
+          <button
+            class="navbar-toggler bg-white"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div></div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active text-white"
+                aria-current="page"
+                href="home.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="history.html">History</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="news.html">News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="index.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- NAV END -->
+
+    <!-- MAIN -->
+    <main class="flex-column justify-content-center align-items-center px-2">
+      <div>
+        <h1 class="fw-bold fs-1">NEWS</h1>
+      </div>
+      <div class="main-container container-fluid d-flex">
+        <!-- CONTAINER OF CARDS -->
+        <div></div>
+      </div>
+
+      <!-- MODAL -->
+      <div
+        class="modal fade"
+        id="newsModal"
+        tabindex="-1"
+        aria-labelledby="newsModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="newsModalLabel"></h5>
+              <button
+                type="button"
+                class="btn-close bg-white"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <img class="popup-image" src="" alt="News Image" />
+              <p class="popup-description mt-4"></p>
+            </div>
+            <div class="modal-footer">
+              <a class="btn readMore" id="newsLink" href="#" target="_blank"
+                >Read More</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- END OF MAIN -->
+
+    <!-- BOOTSTRAP JS LINK -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+  crossorigin="anonymous"
+></script>
+
+<script>
+  class News {
+    constructor(image, title, description, link) {
+      this.image = image;
+      this.title = title;
+      this.description = description;
+      this.link = link;
+    }
+  }
+
+  const news = [
+    new News(
+      "image\\news1.png",
+      "Health outreach program for the people of Alfonso",
+      "On December 12, 2023, the provincial government of Cavite, through the office of the Provincial Governor-Extension and Office of the Provincial Health Officer, conducted a successful health outreach program in Brgy. Poblacion 1, Alfonso, Cavite. A total of 183 patients benefitted, with 161 receiving medical consultations and 32 undergoing dental extractions. The General Emilio Aguinaldo Memorial Hospital medical and dental team, played a crucial role, guided by the Pamaskong Handog theme, “Kalusugan ay Kayamanan, Ating Pag-ingatan”. The mission’s success was attributed to collaborative efforts between local leaders and health professionals, exemplifying the provincial government’s commitment to grassroots healthcare. The team distributed medical prescriptions, multivitamins, supplements, and mosquito-repellent lotion, contributing to community health and preventive care. This initiative not only addressed immediate health concerns but also fostered a culture of health-conscious living, highlighting the effectiveness of community-driven healthcare efforts.",
+      "https://cavite.gov.ph/home/health-outreach-program-for-the-people-of-alfonso/"
+    ),
+    new News(
+      "image\\news2.jpg",
+      "Refresher Discussions on the 2021 Revised",
+      "On December 13, 2023, the Provincial Housing Development and Management Office organized a seminar entitled “Refresher Discussions on the 2021 Revised Implementing Rules and Regulations of Republic Act No. 9904 (Magna Carta for Homeowners and Homeowners’ Associations)”, at the Ceremonial Hall of the Provincial Capitol Building. Attended by 52 participants from Pinagbuklod Village, Pinagkaisa Village and Pinagkaloob Village in Kawit, and the LRTA Relocation Site in Barangay Santiago, City of Gen. Trias, the event provided updates on the legislation to guide officers and residents.",
+      "https://cavite.gov.ph/home/refresher-discussions-on-the-2021-revised-implementing-rules-and-regulations-of-republic-act-no-9904-magna-carta-for-homeowners-and-homeowners-associations/"
+    ),
+    new News(
+      "image\\news3.jpg",
+      "Cavite gives back to the dedicated BHW and BNS",
+      "To give back to the laudable dedication and efforts of Barangay Health Workers (BHW) and Barangay Nutrition Scholars (BNS) across Cavite province, the provincial government of Cavite, with Governor Jonvic Remulla leading the team, distributed incentives allotted to the barangay health frontliners on December 11, 2023 at Cavite State University-Silang Campus. Two-thousand four hundred (2400) BHW and eight hundred thirty-eight (838) BNS received the incentives, amounting to a total of Php 27,695,400.",
+      "https://cavite.gov.ph/home/cavite-gives-back-to-the-dedicated-bhw-and-bns/"
+    ),
+    new News(
+      "image\\news4.jpg",
+      "Medical and Dental Mission in Santiago,GTC",
+      "The Provincial Government of Cavite organized another medical and dental mission, underscoring its commitment to the well-being of its constituents. Collaborating with Bria Homes Homeowners’ Association, the PGC medical mission team’s outreach event was successfully conducted in Barangay Santiago, City of Gen. Trias on December 13, 2023. More than 200 residents availed free medical and dental services provided by the Office of the Provincial Health Office’s medical team and the dental team of the City Health Office of Gen. Trias, assisted by local officials, barangay health workers, and HOA officers. The consultations addressed various health concerns, empowering individuals with insights into their health conditions and furnishing them with pertinent medical advice. Furthermore, prescription medicines were distributed free of charge.",
+      "https://cavite.gov.ph/home/medical-and-dental-mission-in-santiagogtc/"
+    ),
+    new News(
+      "image\\news5.jpg",
+      "PRAISE Awardees",
+      "On December 07, 2023, the Provincial Government of Cavite (PGC) held the Recognition of PGC Praise Awardees 2023 at the Bayleaf Hotel in the City of General Trias, Cavite. The ceremony celebrated the dedicated service and outstanding contributions of government employees, highlighting their commitment to public service. The event, hosted by Atty. Khervy B. Reyes and the Ms. Denesse S. Cajulis, featured an array of distinguished guests, including Mr. Rodel Vincent T. Bae, the OIC-Provincial Administrator for Internal Affairs. Mr. Bae set the tone for the evening by extending a warm welcome to the attendees, recognizing the significance of their collective efforts.",
+      "https://cavite.gov.ph/home/praise-awardees/"
+    ),
+    new News(
+      "image\\news6.jpg",
+      "Capability Enhancement Training",
+      "In the pursuit of promoting economic growth and providing valuable opportunities, the Office of the Provincial Public Employment Service Manager (OPPESM) has taken a significant step towards enhancing the capabilities of Cavite PESO managers and staff through a capability enhancement training on December 5, 2023 held at Ayuntamiento De Gonzalez Auditorium, De La Salle University-Dasmariñas, City of Dasmariñas.",
+      "https://cavite.gov.ph/home/capability-enhancement-training/"
+    ),
+  ];
+
+  function createNews(newsEntry) {
+    // FOR CARD CONTAINER
+    const cardContainer = document.querySelector(".main-container");
+    cardContainer.classList.add("row");
+
+    // FOR CARD
+    const card = document.createElement("div");
+    card.classList.add("card", "p-2", "m-2");
+
+    // FOR THE CARD BODY
+    const cardBody = document.createElement("div");
+    cardBody.classList.add(
+      "card-body",
+      "text-center",
+      "d-flex",
+      "align-items-center",
+      "justify-content-between"
+    );
+
+    // FOR IMAGE
+    const newsImage = document.createElement("img");
+    newsImage.src = newsEntry.image;
+    newsImage.classList.add("rounded-1");
+
+    // FOR CARD TITLE
+    const cardTitle = document.createElement("h5");
+    cardTitle.classList.add("card-title", "fw-bold", "text-start");
+    cardTitle.textContent = newsEntry.title;
+
+    // FOR THE ARROW ICON
+    const arrowIcon = document.createElement("p");
+    arrowIcon.classList.add("arrow", "cursor-pointer");
+    // arrowIcon.innerHTML = '<i class="fa-solid fa-arrow-down fs-4"></i>';
+
+    // ADDING THE TITLE AND ARROW ICON INTO CARD BODY
+    cardBody.appendChild(newsImage);
+    cardBody.appendChild(cardTitle);
+    cardBody.appendChild(arrowIcon);
+
+    // FOR DESSCRIPTION
+    const descriptionList = document.createElement("p");
+    descriptionList.classList.add("description", "visually-hidden", "px-3");
+    descriptionList.textContent = newsEntry.description;
+
+    // FOR SPLITTING THE SENTENCE INTO LIST / NOT REQUIRED HERE
+    // newsEntry.description.split(".").forEach((sentence) => {
+    //   if (sentence.trim() !== "") {
+    //     const listItem = document.createElement("li");
+    //     listItem.textContent = sentence.trim();
+    //     descriptionList.appendChild(listItem);
+    //   }
+    // });
+
+    // ADDING THE BODY AND DESCRIPTION
+    card.appendChild(cardBody);
+    card.appendChild(descriptionList);
+
+    // MAKING ARROW FUNCTIONAL
+    arrowIcon.addEventListener("click", () => {
+      descriptionList.classList.toggle("visually-hidden");
+      newsEntry.isExpanded = !newsEntry.isExpanded;
+
+      if (newsEntry.isExpanded) {
+        arrowIcon.innerHTML = '<i class="fa-solid fa-arrow-up fs-4"></i>';
+      } else {
+        arrowIcon.innerHTML = '<i class="fa-solid fa-arrow-down fs-4"></i>';
+      }
+    });
+
+    // MODAL
+
+    // Making the card clickable to open the modal
+    card.addEventListener("click", () => {
+      const modalTitle = document.getElementById("newsModalLabel");
+      const modalImage = document.querySelector("#newsModal .popup-image");
+      const modalDescription = document.querySelector(
+        "#newsModal .popup-description"
+      );
+      const modalLink = document.getElementById("newsLink");
+
+      modalTitle.textContent = newsEntry.title;
+      modalImage.src = newsEntry.image;
+      modalDescription.textContent = newsEntry.description;
+      modalLink.href = newsEntry.link;
+
+      // Opening the modal
+      const newsModal = new bootstrap.Modal(
+        document.getElementById("newsModal")
+      );
+      newsModal.show();
+    });
+
+    // ADDING THE CARD ITSELF TO THE CONTAINER
+    cardContainer.appendChild(card);
+  }
+
+  news.forEach(createNews);
+</script>

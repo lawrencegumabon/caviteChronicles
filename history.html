@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>History</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- BS CSS LINK -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- FONT LINK -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- STYLE -->
+    <style>
+      .card {
+        background-color: #d9d9d9;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV START -->
+    <nav class="navbar navbar-expand-lg bg-main fixed-top">
+      <div class="container-fluid d-flex justify-content-between">
+        <div class="d-flex container-fluid justify-content-between">
+          <a class="navbar-brand text-white fs-2 fw-bold" href="#"
+            >CaviteChronicles</a
+          >
+          <button
+            class="navbar-toggler bg-white"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div></div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active text-white"
+                aria-current="page"
+                href="home.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="history.html">History</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="news.html">News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="index.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- NAV END -->
+
+    <!-- MAIN -->
+    <main class="d-flex justify-content-center align-items-center px-2">
+      <div class="main-container">
+        <!-- Add a container div for the cards -->
+        <h1 class="fw-bold fs-1">HISTORY OF CAVITE</h1>
+        <div>
+          <!-- JavaScript will dynamically generate cards here -->
+        </div>
+      </div>
+    </main>
+    <!-- END OF MAIN -->
+
+    <!-- BOOTSTRAP JS LINK -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+
+<script>
+  // LISTS/OOP
+  class History {
+    constructor(title, description) {
+      this.title = title;
+      this.description = description;
+    }
+  }
+
+  const history = [
+    new History(
+      "Pre-Spanish Era:",
+      "Cavite was inhabited by various indigenous communities, including the Tagalogs, before the arrival of Spanish colonizers. The region played a significant role in trade, with coastal communities engaging in maritime activities and commerce."
+    ),
+    new History(
+      "Spanish Colonization (16th Century):",
+      "Augustinian friars established the first Spanish settlement in Cavite in 1571. Cavite became a vital port and a strategic location for the Spanish fleet."
+    ),
+    new History(
+      "Galleon Trade (17th Century):",
+      "Cavite gained prominence as the base for the Manila-Acapulco Galleon Trade, a major maritime route connecting Asia and the Americas."
+    ),
+    new History(
+      "British Occupation (1762-1764):",
+      "Cavite was occupied by the British during the Seven Years' War, disrupting Spanish control in the region."
+    ),
+    new History(
+      "19th Century Revolts:",
+      "Caviteños actively participated in the Philippine Revolution against Spanish rule. The province witnessed the signing of the 'Acta de Tejeros,' a significant event in Philippine history."
+    ),
+    new History(
+      "American Period (20th Century):",
+      "Cavite played a role in the Philippine-American War and became a focus of American military presence. The construction of the US. Naval Base in Cavite significantly impacted the region."
+    ),
+    new History(
+      "World War II:",
+      "Japanese forces occupied Cavite during World War II, leading to significant destruction and loss of life."
+    ),
+    new History(
+      "Post-Independence Era:",
+      "Cavite emerged as an industrial hub and saw urban development in the latter half of the 20th century. The province continues to evolve economically and culturally, contributing to the growth of the Calabarzon region."
+    ),
+    new History(
+      "Recent Developments:",
+      "The province has become known for its economic zones, industrial parks, and diverse economic activities. Urbanization and modernization have transformed Cavite into a dynamic and thriving part of the Philippines."
+    ),
+  ];
+
+  //   history.forEach((list) => {
+  //     console.log(list.description);
+  //   });
+
+  // CREATING CARDS
+  function createHistoryCard(historyEntry) {
+    const cardContainer = document.querySelector(".main-container"); // Add a class or ID to the container div
+    cardContainer.classList.add("container-fluid");
+
+    const card = document.createElement("div");
+    card.classList.add("card", "p-2", "my-2");
+
+    const cardBody = document.createElement("div");
+    cardBody.classList.add(
+      "card-body",
+      "text-center",
+      "d-flex",
+      "align-items-center",
+      "justify-content-between"
+    );
+
+    const cardTitle = document.createElement("h3");
+    cardTitle.classList.add("card-title", "fw-bold", "text-start");
+    cardTitle.textContent = historyEntry.title;
+
+    const arrowIcon = document.createElement("p");
+    arrowIcon.classList.add("arrow", "cursor-pointer");
+    arrowIcon.innerHTML = '<i class="fa-solid fa-arrow-down fs-4"></i>';
+
+    cardBody.appendChild(cardTitle);
+    cardBody.appendChild(arrowIcon);
+
+    const descriptionList = document.createElement("ul");
+    descriptionList.classList.add("description", "visually-hidden");
+
+    historyEntry.description.split(".").forEach((sentence) => {
+      if (sentence.trim() !== "") {
+        const listItem = document.createElement("li");
+        listItem.textContent = sentence.trim();
+        descriptionList.appendChild(listItem);
+      }
+    });
+
+    card.appendChild(cardBody);
+    card.appendChild(descriptionList);
+
+    // Add event listener to toggle visibility on arrow click
+    arrowIcon.addEventListener("click", () => {
+      descriptionList.classList.toggle("visually-hidden");
+      historyEntry.isExpanded = !historyEntry.isExpanded;
+
+      if (historyEntry.isExpanded) {
+        arrowIcon.innerHTML = '<i class="fa-solid fa-arrow-up fs-4"></i>';
+      } else {
+        arrowIcon.innerHTML = '<i class="fa-solid fa-arrow-down fs-4"></i>';
+      }
+    });
+
+    cardContainer.appendChild(card);
+  }
+
+  // Iterate through history and create cards
+  history.forEach(createHistoryCard);
+</script>

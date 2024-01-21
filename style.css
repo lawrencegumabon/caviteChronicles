@@ -1,0 +1,25 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.bg-main {
+  background-color: #1b262c;
+}
+
+.body {
+  background-image: url("image\\background.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+main {
+  /* 80 REM */
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 6rem 0;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
