@@ -1,4 +1,6 @@
 const users = [];
+let loginAttempts = 0;
+let cooldownTimeout;
 
 function signup() {
   const username = document.getElementById("signupUsername").value;
@@ -26,7 +28,6 @@ function signup() {
 }
 
 function login() {
-  console.log(users);
   const username = document.getElementById("loginUsername").value;
   const password = document.getElementById("loginPassword").value;
 
@@ -44,6 +45,21 @@ function login() {
     alert("Login successful!");
     window.location.href = "home.html";
   } else {
-    alert("Invalid username or password. Please try again.");
+    loginAttempts++;
+
+    if (loginAttempts == 3) {
+      alert(
+        "You have reached the maximum number of login attempts. Please wait for the cooldown."
+      );
+
+      // Set a 30-second cooldown
+      // 30 seconds in milliseconds
+    } else {
+      // alert("Invalid username or password. Please try again.");
+      cooldownTimeout = setTimeout(() => {
+        loginAttempts = 0; // Reset login attempts after cooldown
+        alert("Cooldown period is over. You can now try again.");
+      }, 30000);
+    }
   }
 }

@@ -158,6 +158,9 @@
         <div class="d-flex align-items-center justify-content-between mb-3">
           <button onclick="login()" class="container bttn p-2">Login</button>
         </div>
+        <div id="cooldownMessage" style="display: none">
+          <p>Time remaining: <span id="cooldownCounter">30</span> seconds</p>
+        </div>
 
         <p onclick="showRegForm()" class="account">Register an account?</p>
       </div>
@@ -174,6 +177,8 @@
 
     <script>
       const users = [];
+      let loginAttempts = 0;
+      let cooldownTimeout;
 
       function signup() {
         const username = document.getElementById("signupUsername").value;
@@ -209,6 +214,14 @@
           return;
         }
 
+        if (loginAttempts >= 3) {
+          alert("You have reached the maximum number of login attempts.");
+          return;
+        }
+
+        const cooldownMessage = document.getElementById("cooldownMessage");
+        const cooldownCounter = document.getElementById("cooldownCounter");
+
         // Check if the username and password match a user in the "database"
         const user = users.find(
           (u) => u.username === username && u.password === password
@@ -216,10 +229,32 @@
 
         if (user) {
           alert("Login successful!");
-
           window.location.href = "home.html";
         } else {
-          alert("Invalid username or password. Please try again.");
+          loginAttempts++;
+
+          if (loginAttempts === 3) {
+            alert("You have 30 seconds before you can login again.");
+            cooldownMessage.style.display = "block";
+
+            let countdown = 30;
+
+            // Update countdown every second
+            const countdownInterval = setInterval(() => {
+              cooldownCounter.textContent = countdown;
+
+              countdown--;
+
+              if (countdown === 0) {
+                clearInterval(countdownInterval);
+                loginAttempts = 0; // Reset login attempts after cooldown
+                cooldownMessage.style.display = "none";
+                alert("30 Seconds is over. Please try logging in again.");
+              }
+            }, 1000); // Update countdown every 1000 milliseconds (1 second)
+          } else {
+            alert("Invalid username or password. Please try again.");
+          }
         }
       }
       // Function to show the login form after successful registration

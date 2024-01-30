@@ -32,6 +32,21 @@
       .card {
         background-color: #d9d9d9;
       }
+
+      .description {
+        transition: max-height 0.3s ease-in-out;
+        max-height: 0;
+        overflow: hidden;
+      }
+
+      .visually-hidden {
+        max-height: 0 !important; /* Override Bootstrap's styling */
+      }
+
+      .closing .card-body {
+        border-bottom: 1px solid transparent; /* Add a border for the transition effect */
+        transition: border-bottom 0.3s ease-in-out;
+      }
     </style>
   </head>
   <body>
@@ -197,14 +212,23 @@
 
     // Add event listener to toggle visibility on arrow click
     arrowIcon.addEventListener("click", () => {
+      const descriptionList = card.querySelector(".description");
       descriptionList.classList.toggle("visually-hidden");
       historyEntry.isExpanded = !historyEntry.isExpanded;
 
       if (historyEntry.isExpanded) {
         arrowIcon.innerHTML = '<i class="fa-solid fa-arrow-up fs-4"></i>';
+        descriptionList.style.maxHeight = descriptionList.scrollHeight + "px";
       } else {
         arrowIcon.innerHTML = '<i class="fa-solid fa-arrow-down fs-4"></i>';
+        card.classList.add("closing"); // Add the closing class
+        descriptionList.style.maxHeight = "0";
       }
+    });
+
+    // Add an event listener to remove the closing class after the transition
+    card.addEventListener("transitionend", () => {
+      card.classList.remove("closing");
     });
 
     cardContainer.appendChild(card);

@@ -84,6 +84,19 @@
         background-color: #1b262c;
         color: white;
       }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .fade-in {
+        animation: fadeIn 1.5s ease-in-out;
+      }
     </style>
   </head>
   <body>
@@ -325,11 +338,17 @@
       modalDescription.textContent = newsEntry.description;
       modalLink.href = newsEntry.link;
 
-      // Opening the modal
+      // Adding fade-in animation class to the modal
       const newsModal = new bootstrap.Modal(
         document.getElementById("newsModal")
       );
+      document.getElementById("newsModal").classList.add("fade-in");
       newsModal.show();
+
+      // Removing fade-in animation class after the animation is complete
+      setTimeout(() => {
+        document.getElementById("newsModal").classList.remove("fade-in");
+      }, 2000);
     });
 
     // ADDING THE CARD ITSELF TO THE CONTAINER
